@@ -179,7 +179,7 @@ jobs:
           # 调整分区大小:
           cat >> .config <<EOF
           CONFIG_TARGET_KERNEL_PARTSIZE=512
-          CONFIG_TARGET_ROOTFS_PARTSIZE=1024
+          CONFIG_TARGET_ROOTFS_PARTSIZE=512
           EOF
           # 
           # ========================固件定制部分结束========================
