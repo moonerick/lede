@@ -206,5 +206,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt by lean
+          name: OpenWrt
           path: ./artifact/
