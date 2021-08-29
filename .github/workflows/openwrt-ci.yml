@@ -91,15 +91,26 @@ jobs:
           cat >> .config <<EOF
           CONFIG_TARGET_x86_64_Generic=y
           CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_64=y          
+          CONFIG_TARGET_x86_64=y
           EOF
           # 固件压缩:
           cat >> .config <<EOF
           CONFIG_TARGET_IMAGES_GZIP=y
           EOF
-          # 编译UEFI固件:
+          # 取消编译UEFI固件:
           cat >> .config <<EOF
-          CONFIG_EFI_IMAGES=y
+          CONFIG_GRUB_IMAGES=y
+          # CONFIG_GRUB_EFI_IMAGES is not set
+          CONFIG_PACKAGE_grub2=y
+          # CONFIG_PACKAGE_grub2-efi is not set
+          EOF
+          # 设置ip:
+          cat >> .config <<EOF
+          CONFIG_TARGET_PREINIT_IP="192.168.2.1"
+          EOF
+          # 设置核心为5.10:
+          cat >> .config <<EOF
+          CONFIG_LINUX_5_10=y
           EOF
           # IPv6支持:
           cat >> .config <<EOF
